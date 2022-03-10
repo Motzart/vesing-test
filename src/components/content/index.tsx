@@ -29,7 +29,7 @@ export const Content = () => {
         <div className="col-md-4">
           <br/>
           <br />
-          {signedIn && balance && (<button className="btn btn-outline-success" onClick={() => claim()}>Claim All</button>)}
+          {signedIn && lookups && (<button className="btn btn-outline-success" onClick={() => claim()}>Claim All</button>)}
           {signedIn && transactionHash && (
             <button className="btn btn-outline-success" onClick={() => {
               const url = `https://explorer.testnet.near.org/transactions/${transactionHash}`
@@ -40,7 +40,7 @@ export const Content = () => {
         <div className="col-md-4">
           <br/>
           <br/>
-          {signedIn && balance && (<h4>Balance: {formatNearAmount(balance, 4)}</h4>)}
+          {signedIn && lookups && (<h4>Balance: {formatNearAmount(balance, 4)}</h4>)}
         </div>
       </div>
     </div>
