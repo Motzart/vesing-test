@@ -1,0 +1,152 @@
+@import "../variables.scss";
+
+.tokensBlock {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 24px;
+
+  width: auto;
+  height: auto;
+
+  background: $color_14161C;
+  box-shadow: inset 0px 2px 2px $color_1B1E25;
+  border-radius: 24px;
+}
+
+.saleText {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  margin-bottom: 16px;
+
+  color: $white;
+}
+
+.amountPem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.sold {
+  justify-content: space-between;
+}
+
+.soldText {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+
+  margin-bottom: 8px;
+
+  color: $color_848a8f;
+}
+
+.numData {
+  display: flex;
+}
+
+.numText {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 40px;
+
+  color: #f6821f;
+}
+
+.logo {
+  margin-left: 8px;
+}
+
+.buttonInfo {
+  padding: 8px 24px;
+  border: none;
+  background: $brand_yellow;
+  border-radius: 8px;
+}
+
+@media (max-width: 440px) {
+  .amountPem {
+    display: block;
+  }
+
+  .sold {
+    margin-bottom: 28px;
+  }
+
+  .buttonInfo {
+    width: 100%;
+  }
+}
+
+.buttonText {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+
+  color: $white;
+}
+
+.lineGrey {
+  width: auto;
+  left: 490px;
+  top: 476px;
+
+  mix-blend-mode: luminosity;
+  border: 1px solid $color_2b3139;
+}
+
+.percentBlockAll {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.percentBlock {
+  display: flex;
+  text-align: center;
+}
+
+.percentImg {
+  vertical-align: middle;
+}
+
+.discountText {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  margin-left: 12px;
+
+  color: $color_848a8f;
+}
+
+.percentText {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: right;
+
+  color: $color_16c784;
+}
+
+.daysText {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: right;
+  margin-left: 5px;
+
+  color: $white;
+}
+
+.daysPem {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  margin-left: 5px;
+
+  color: $color_848a8f;
+}
