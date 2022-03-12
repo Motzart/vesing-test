@@ -1,0 +1,39 @@
+@import "../../variables.module.scss";
+
+.header_list {
+  display: flex;
+  column-gap: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.header_link {
+  list-style: none;
+  color: $color_848A8F;
+  text-decoration: none;
+  width: 62px;
+  height: 24px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.header_link {
+  &:hover {
+    color: $color_FFFFFF;
+  }
+}
+
+.icon {
+  margin-left: 5px;
+}
+
+.active_menu_link {
+  color: $color_FFFFFF;
+}
+
+@media (max-width: 767px) {
+  .navigation {
+    display: none;
+  }
+}

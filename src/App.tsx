@@ -1,7 +1,10 @@
+// library
 import React, { useContext, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// utils
 import { appStore, onAppMount } from '~state/app';
-import { NavBar } from '~components/navBar';
-import { Content } from '~components/content';
+
+import NoAuthPage from '~components/noConnectWallet'
 
 function App() {
   const { dispatch } = useContext(appStore);
@@ -13,11 +16,13 @@ function App() {
   useEffect(onMount, []);
 
   return (
-    <>
-      <NavBar/>
-      <Content />
-    </>
-  );
+    <Router>
+      <Routes>
+        <Route path="/" element={<NoAuthPage />} />
+        <Route path="/how-to-buy" element={<NoAuthPage />} />
+      </Routes>
+    </Router>
+  )
 }
 
 export default App;
