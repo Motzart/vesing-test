@@ -1,0 +1,25 @@
+@import "../variables.scss";
+
+.heloBlock {
+  margin-top: 80px;
+}
+
+.titleHelo {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 48px;
+  text-align: center;
+
+  color: $brand_yellow;
+}
+
+.informationHeader {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 48px;
+  text-align: center;
+
+  color: $white;
+}

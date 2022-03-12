@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { appStore, onAppMount } from '~state/app';
 import { NavBar } from '~components/navBar';
+import {HelloBlock} from '~components/HelloBlock'
 import { Content } from '~components/content';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   return (
     <>
       <NavBar/>
+      <HelloBlock />
       <Content />
     </>
   );
