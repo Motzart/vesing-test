@@ -1,18 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { NoConnected } from "./NoConnected";
 import { Connected } from "./Connectes";
+import { appStore } from '~state/app';
 
-export const ClaimTokensBlock = () => { 
-    const [registered, setКegistered] = useState(true);
+export const ClaimTokensBlock = () => {
+  const { state } = useContext(appStore);
 
-return(
-    <div>
-        {registered
-        ? <NoConnected />
-        : <div>
-           <Connected />
-         </div>
-        }
-    </div>
-   )
+  const { wallet } = state;
+  const signedIn = wallet && wallet.signedIn;
+
+  return signedIn ? <Connected /> : <NoConnected />
 };
