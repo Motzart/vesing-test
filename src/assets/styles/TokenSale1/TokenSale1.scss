@@ -1,0 +1,67 @@
+@import "../variables.scss";
+
+.tokensBlock {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 24px;
+
+  width: auto;
+  height: auto;
+
+  background: $color_14161C;
+  box-shadow: inset 0px 2px 2px $color_1B1E25;
+  border-radius: 24px;
+}
+
+.saleText {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  margin-bottom: 16px;
+
+  color: $white;
+}
+
+.percentBlockAll {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.percentBlock {
+  display: flex;
+  text-align: center;
+}
+
+.percentImg {
+  vertical-align: middle;
+}
+
+.discountText {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  margin-left: 12px;
+
+  color: $color_848a8f;
+}
+
+.percentText {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: right;
+
+  color: $color_16c784;
+}
+
+.daysText {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: right;
+  margin-left: 5px;
+
+  color: $white;
+}
