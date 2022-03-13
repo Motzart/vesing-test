@@ -18,7 +18,7 @@ export const State = (initialState: IInitialState, prefix: string) => {
   const { Provider: InnerProvider } = store;
 
   const updateState = (state: IInitialState, newState: IInitialState, path = '') => {
-    // console.log('updateState', state, path, newState) // debugging
+    //console.log('updateState', state, path, newState) // debugging
     if (path.length === 0) {
       return { ...state, ...newState };
     }

@@ -17,10 +17,6 @@ export default class NearWallet extends WalletConnection {
     return this._connectedAccount;
   }
 
-  test() {
-   return console.log('test');
-  }
-
   createTransaction({
     receiverId,
     actions,

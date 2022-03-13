@@ -40,7 +40,7 @@ export const Content = () => {
         <div className="col-md-4">
           <br/>
           <br/>
-          {signedIn && lookups && (<h4>Balance: {formatNearAmount(balance, 4)}</h4>)}
+          {signedIn && lookups && (<h4>Balance: {formatNearAmount(balance, 5)}</h4>)}
         </div>
       </div>
     </div>
@@ -53,11 +53,11 @@ const showData = (data: UserLockupsView) => {
     <div>
       <h4>Data:</h4>
       <p>account_id: {data.account_id}</p>
-      <p>claimed_balance: {formatNearAmount(data.claimed_balance, 4)}</p>
+      <p>claimed_balance: {formatNearAmount(data.claimed_balance, 5)}</p>
       <p>termination_config: {data.termination_config || 'null'}</p>
       <p>timestamp: {formattedTime(data.timestamp)}</p>
-      <p>total_balance: {formatNearAmount(data.total_balance, 4)}</p>
-      <p>unclaimed_balance: {formatNearAmount(data.unclaimed_balance, 4)}</p>
+      <p>total_balance: {formatNearAmount(data.total_balance, 5)}</p>
+      <p>unclaimed_balance: {formatNearAmount(data.unclaimed_balance, 5)}</p>
       <h4>Schedule:</h4>
       {schedule.map((item: {timestamp: number, balance: string}, index) => {
         return (

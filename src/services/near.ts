@@ -1,11 +1,17 @@
 import { utils } from 'near-api-js';
 import BN from 'bn.js';
+import { functionCall } from 'near-api-js/lib/transaction';
 import { wallet } from '~utils/near-utils';
 import getConfig from '../config'
+import { currentStorageBalance } from '~services/account';
 
 const config = getConfig();
 
 const LOCKUP_CONTRACT_ID = config.LOCKUP_CONTRACT_ID;
+const TOKEN_CONTRACT_ID = config.TOKEN_CONTRACT_ID;
+
+export const NEW_ACCOUNT_STORAGE_COST: string = '0.00125';
+const DEFAULT_GAS: string = '30000000000000';
 
 export const getGas = (gas: string) =>
   gas ? new BN(gas) : new BN('100000000000000');
@@ -13,12 +19,12 @@ export const getGas = (gas: string) =>
 export const getAmount = (amount: string) =>
   amount ? new BN(utils.format.parseNearAmount(amount)) : new BN('0');
 
-export interface ViewFunctionOptions {
+export interface IViewFunctionOptions {
   methodName: string;
   args?: object;
 }
 
-export interface FunctionCallOptions extends ViewFunctionOptions {
+export interface IFunctionCallOptions extends IViewFunctionOptions {
   gas?: string;
   amount?: string;
 }
@@ -26,16 +32,21 @@ export interface FunctionCallOptions extends ViewFunctionOptions {
 export const viewFunction = ({
   methodName,
   args,
-}: ViewFunctionOptions) => {
+}: IViewFunctionOptions) => {
  return wallet.account().viewFunction(LOCKUP_CONTRACT_ID, methodName, args);
 };
 
-export const functionCall = ({
+export interface Transaction {
+  receiverId: string;
+  functionCalls: IFunctionCallOptions[];
+}
+
+export const lockUpFunctionCall = ({
   methodName,
   args,
   gas,
   amount,
-}: FunctionCallOptions) => {
+}: IFunctionCallOptions) => {
   return wallet
     .account()
     .functionCall(
@@ -54,10 +65,70 @@ export const getUserLockups = (): Promise<[]> => {
   });
 }
 
-export const claim = () => {
-  return functionCall({
-    methodName: 'claim',
-    args: { account_id: wallet.getAccountId() },
-    gas: getGas('300000000000000').toString(),
-  })
+export const claim = async () => {
+  const transactions: Transaction[] = [];
+
+  const balance = await currentStorageBalance();
+  if (!balance || balance.total === '0') {
+
+    // call storage
+    transactions.unshift({
+      receiverId: TOKEN_CONTRACT_ID,
+      functionCalls: [
+        {
+          methodName: 'storage_deposit',
+          args: {
+            account_id: wallet.getAccountId(),
+            registration_only: true,
+          },
+          amount: NEW_ACCOUNT_STORAGE_COST,
+          gas: DEFAULT_GAS,
+        },
+      ],
+    });
+
+    // claim
+    transactions.unshift({
+      receiverId: LOCKUP_CONTRACT_ID,
+      functionCalls: [
+        {
+          methodName: 'claim',
+          args: {},
+          gas: getGas(DEFAULT_GAS).toString(),
+        },
+      ],
+    });
+
+    return executeMultipleTransactions(transactions);
+  } else {
+    return lockUpFunctionCall({
+      methodName: 'claim',
+      args: {},
+      gas: getGas(DEFAULT_GAS).toString(),
+    })
+  }
 }
+
+export const executeMultipleTransactions = async (
+  transactions: Transaction[],
+  callbackUrl?: string
+) => {
+  const nearTransactions = await Promise.all(
+    transactions.map((t, i) => {
+      return wallet.createTransaction({
+        receiverId: t.receiverId,
+        nonceOffset: i + 1,
+        actions: t.functionCalls.map((fc) =>
+          functionCall(
+            fc.methodName,
+            fc.args,
+            getGas(fc.gas),
+            getAmount(fc.amount)
+          )
+        ),
+      });
+    })
+  );
+
+  return wallet.requestSignTransactions(nearTransactions, callbackUrl);
+};

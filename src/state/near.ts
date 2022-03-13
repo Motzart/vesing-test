@@ -33,11 +33,11 @@ export const initNear = () => async ({ update }: Store): Promise<InitNear> => {
     update('', { account: null });
   };
 
-  wallet.signedIn = wallet.isSignedIn();
+  const signedIn = wallet.isSignedIn();
 
   let account;
 
-  if (wallet.signedIn) {
+  if (signedIn) {
     account = wallet.account();
     wallet.balance = formatNearAmount((await wallet.account().getAccountBalance()).available, 4);
     await update('', { near, wallet, account });
