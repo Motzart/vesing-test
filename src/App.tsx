@@ -6,6 +6,7 @@ import { Content } from '~components/content';
 import {ClaimTokensBlock} from '~components/ClaimTokensBlock';
 import {Faq} from '~components/Faq';
 import {HowMuchPem} from '~components/HowMuchPem';
+import {LeaveTelegram} from '~components/LeaveTelegram';
 
 function App() {
   const { dispatch } = useContext(appStore);
@@ -24,6 +25,7 @@ function App() {
       <ClaimTokensBlock />
       <Faq />
       <HowMuchPem />
+      <LeaveTelegram />
     </>
   );
 }
