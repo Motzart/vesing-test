@@ -11,7 +11,6 @@ const LOCKUP_CONTRACT_ID = config.LOCKUP_CONTRACT_ID;
 const TOKEN_CONTRACT_ID = config.TOKEN_CONTRACT_ID;
 
 export const NEW_ACCOUNT_STORAGE_COST: string = '0.00125';
-const DEFAULT_GAS: string = '30000000000000';
 
 export const getGas = (gas: string) =>
   gas ? new BN(gas) : new BN('100000000000000');
@@ -72,6 +71,18 @@ export const claim = async () => {
 
   if (!balance || balance.total === '0') {
 
+    // claim
+    transactions.unshift({
+      receiverId: LOCKUP_CONTRACT_ID,
+      functionCalls: [
+        {
+          methodName: 'claim',
+          args: {},
+          gas: getGas('100000000000000').toString(),
+        },
+      ],
+    });
+
     // call storage
     transactions.unshift({
       receiverId: TOKEN_CONTRACT_ID,
@@ -84,18 +95,6 @@ export const claim = async () => {
           },
           amount: NEW_ACCOUNT_STORAGE_COST,
           gas: '30000000000000',
-        },
-      ],
-    });
-
-    // claim
-    transactions.unshift({
-      receiverId: LOCKUP_CONTRACT_ID,
-      functionCalls: [
-        {
-          methodName: 'claim',
-          args: {},
-          gas: getGas(DEFAULT_GAS).toString(),
         },
       ],
     });
