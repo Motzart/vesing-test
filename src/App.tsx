@@ -3,8 +3,10 @@ import React, { useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // utils
 import { appStore, onAppMount } from '~state/app';
-// components
-import NoConnectWallet from '~pages/noConnectWallet'
+
+import {Faq} from '~components/Faq';
+
+import NoConnectWallet from '~pages/noConnectWallet';
 
 function App() {
   const { dispatch } = useContext(appStore);
@@ -16,6 +18,7 @@ function App() {
   useEffect(onMount, []);
 
   return (
+
     <Router>
       <Routes>
         <Route path="/" element={<NoConnectWallet />} />
