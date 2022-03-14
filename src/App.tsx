@@ -5,6 +5,7 @@ import {HelloBlock} from '~components/HelloBlock'
 import { Content } from '~components/content';
 import {ClaimTokensBlock} from '~components/ClaimTokensBlock';
 import {Faq} from '~components/Faq';
+import {HowMuchPem} from '~components/HowMuchPem';
 
 function App() {
   const { dispatch } = useContext(appStore);
@@ -22,6 +23,7 @@ function App() {
       <Content />
       <ClaimTokensBlock />
       <Faq />
+      <HowMuchPem />
     </>
   );
 }
