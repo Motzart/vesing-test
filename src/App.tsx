@@ -4,6 +4,7 @@ import { NavBar } from '~components/navBar';
 import {HelloBlock} from '~components/HelloBlock'
 import { Content } from '~components/content';
 import {ClaimTokensBlock} from '~components/ClaimTokensBlock';
+import {Faq} from '~components/Faq';
 
 function App() {
   const { dispatch } = useContext(appStore);
@@ -20,6 +21,7 @@ function App() {
       <HelloBlock />
       <Content />
       <ClaimTokensBlock />
+      <Faq />
     </>
   );
 }
