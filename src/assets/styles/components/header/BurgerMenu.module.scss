@@ -1,0 +1,76 @@
+@import "../../variables.scss";
+
+.header_menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease 0s;
+  background-color: $black;
+  padding: 70px 0px 0px 0px;
+}
+
+.arrows {
+  float: right;
+  margin: 0px 50px 0px 0px;
+}
+
+.header_list {
+  display: block;
+  column-gap: 24px;
+  position: relative;
+  padding: 0 24px;
+  z-index: 2;
+}
+
+.header_link_menu {
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: $honeydew;
+}
+
+.header_link {
+  list-style: none;
+  color: $color_848A8F;
+  text-decoration: none;
+  width: 62px;
+  height: 24px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.header_link {
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color_FFFFFF;
+  }
+}
+
+.li_a {
+  margin-bottom: 30px;
+}
+
+.li_b {
+  margin-bottom: 20px;
+}
+
+.icon {
+  margin-left: 7px;
+}
+
+.block_list {
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+}
+
+.social_burger {
+  margin: 0 auto;
+  width: 168px;
+  height: 100px;
+}
