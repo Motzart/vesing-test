@@ -1,21 +1,12 @@
-@import '../../styles/variables.module.scss';
+@import "../../variables.scss";
 
 .header {
   position: sticky;
   width: 100%;
   top: 0;
   left: 0;
+  padding: 0 32px;
   z-index: 50;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: calc((100% - 100vw) / 2);
-    width: 100vw;
-    height: 100%;
-    background-color: $black;
-  }
 
   .header_body {
     position: relative;
@@ -23,18 +14,17 @@
     justify-content: space-between;
     height: 60px;
     align-items: center;
-  }
+    .logo_block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-  .menu_logo_block {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .menu_block {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    .mobile_block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
 
@@ -67,7 +57,7 @@
 
   .header_burger::before,
   .header_burger::after {
-    content: '';
+    content: "";
     background-color: $brand_yellow;
     position: absolute;
     width: 100%;
@@ -101,7 +91,7 @@
 
   .header_burger::before,
   .header_burger::after {
-    content: '';
+    content: "";
     background-color: $brand_yellow;
     position: absolute;
     width: 100%;

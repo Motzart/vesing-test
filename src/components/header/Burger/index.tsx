@@ -1,9 +1,8 @@
 // library
 import React from 'react'
-import { Link } from 'gatsby'
-import Social from '../../Social/Social'
+import { Link } from "react-router-dom";
 // styles
-import * as styles from '../../../styles/header/BurgerMenu.module.scss'
+import styles from '../../../assets/styles/components/header/burgerMenu.module.scss'
 
 const BurgerMenu = ({ img, menuList, handleClick }) => {
   return (
@@ -32,11 +31,6 @@ const BurgerMenu = ({ img, menuList, handleClick }) => {
           )
         })}
       </ul>
-      <div className={styles.block_list}>
-        <div className={styles.social_burger}>
-          <Social />
-        </div>
-      </div>
     </nav>
   )
 }

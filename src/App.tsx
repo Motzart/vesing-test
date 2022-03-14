@@ -3,8 +3,8 @@ import React, { useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // utils
 import { appStore, onAppMount } from '~state/app';
-
-import NoAuthPage from '~components/noConnectWallet'
+// components
+import NoConnectWallet from '~pages/noConnectWallet'
 
 function App() {
   const { dispatch } = useContext(appStore);
@@ -18,8 +18,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<NoAuthPage />} />
-        <Route path="/how-to-buy" element={<NoAuthPage />} />
+        <Route path="/" element={<NoConnectWallet />} />
+        <Route path="/how-to-buy" element={<NoConnectWallet />} />
       </Routes>
     </Router>
   )
