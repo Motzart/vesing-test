@@ -1,12 +1,31 @@
 // colors
+$black: #0b0e11;
 $white: #eaecef;
 $green: #16c784;
 $brand_yellow: #f6821f;
+$honeydew: honeydew;
+$color_848a8f: #848a8f;
 $color_14161C: #14161c;
 $color_6E747C: #6e747c;
 $color_1B1E25: #1b1e25;
-$color_848a8f: #848a8f;
-$color_2b3139: #2b3139;
+$color_1d1d1d: #1d1d1d;
+$color_080808: #080808;
+$color_FFFFFF: #ffffff;
+$color_848A8F: #848a8f;
+$color_1E1E1F: #1e1e1f;
+$color_5A2D1A: #5a2d1a;
+$color_EAECEF: #eaecef;
+$color_141313: #141313;
 $color_16c784: #16c784;
+$color_f2c037: #f2c037;
+$rgba_done: rgba(22, 199, 132, 0.2);
+$rgba_in_progress: rgba(242, 192, 55, 0.2);
+$line_gradient: linear-gradient(180deg, $color_1d1d1d 0%, $color_080808 100%);
+$line_gradient_1e1e1f: linear-gradient(
+  180deg,
+  #1e1e1f 0%,
+  rgba(30, 30, 31, 0) 100%
+);
+$box_shadow_inset: inset 0px 4px 4px rgba(255, 255, 255, 0.08);
 
 // mixins

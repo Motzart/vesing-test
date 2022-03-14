@@ -1,12 +1,12 @@
+// library
 import React, { useContext, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// utils
 import { appStore, onAppMount } from '~state/app';
-import { NavBar } from '~components/navBar';
-import {HelloBlock} from '~components/HelloBlock'
-import { Content } from '~components/content';
-import {ClaimTokensBlock} from '~components/ClaimTokensBlock';
+
 import {Faq} from '~components/Faq';
-import {HowMuchPem} from '~components/HowMuchPem';
-import {LeaveTelegram} from '~components/LeaveTelegram';
+
+import NoConnectWallet from '~pages/noConnectWallet';
 
 function App() {
   const { dispatch } = useContext(appStore);
@@ -18,16 +18,14 @@ function App() {
   useEffect(onMount, []);
 
   return (
-    <>
-      <NavBar/>
-      <HelloBlock />
-      <Content />
-      <ClaimTokensBlock />
-      <Faq />
-      <HowMuchPem />
-      <LeaveTelegram />
-    </>
-  );
+
+    <Router>
+      <Routes>
+        <Route path="/" element={<NoConnectWallet />} />
+        <Route path="/how-to-buy" element={<NoConnectWallet />} />
+      </Routes>
+    </Router>
+  )
 }
 
 export default App;
