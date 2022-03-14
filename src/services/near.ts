@@ -69,6 +69,7 @@ export const claim = async () => {
   const transactions: Transaction[] = [];
 
   const balance = await currentStorageBalance();
+
   if (!balance || balance.total === '0') {
 
     // call storage
@@ -82,7 +83,7 @@ export const claim = async () => {
             registration_only: true,
           },
           amount: NEW_ACCOUNT_STORAGE_COST,
-          gas: DEFAULT_GAS,
+          gas: '30000000000000',
         },
       ],
     });
@@ -104,7 +105,7 @@ export const claim = async () => {
     return lockUpFunctionCall({
       methodName: 'claim',
       args: {},
-      gas: getGas(DEFAULT_GAS).toString(),
+      gas: getGas('100000000000000').toString(),
     })
   }
 }

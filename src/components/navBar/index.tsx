@@ -7,7 +7,7 @@ export const NavBar = () => {
 
   const { wallet, account } = state;
   const signedIn = wallet && wallet.signedIn;
-
+console.log('signedIn', signedIn)
   return (
     <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div className="container-fluid">
