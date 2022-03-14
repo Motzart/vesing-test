@@ -13,6 +13,12 @@
   display: flex;
 }
 
+@media (max-width: 375px) {
+  .oldBlock {
+    display: block;
+  }
+}
+
 .faqBlock {
   margin-top: 32px;
   margin-left: auto;
@@ -29,6 +35,12 @@
 
 .faqBlock:first-child {
   margin-right: 20px;
+}
+
+@media (max-width: 375px) {
+  .faqBlock:first-child {
+    margin-right: 0px;
+  }
 }
 
 .title {
