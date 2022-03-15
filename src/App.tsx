@@ -1,10 +1,11 @@
+// library
 import React, { useContext, useEffect } from 'react';
+// utils
 import { appStore, onAppMount } from '~state/app';
-import { NavBar } from '~components/navBar';
-import {HelloBlock} from '~components/HelloBlock'
+
+// components
+import Layout from '~components/layout';
 import { Content } from '~components/content';
-import {ClaimTokensBlock} from '~components/ClaimTokensBlock';
-import {TokenSale1} from '~components/TokenSale1';
 
 function App() {
   const { dispatch } = useContext(appStore);
@@ -16,14 +17,10 @@ function App() {
   useEffect(onMount, []);
 
   return (
-    <>
-      <NavBar/>
-      <HelloBlock />
+    <Layout>
       <Content />
-      <ClaimTokensBlock />
-      <TokenSale1 />
-    </>
-  );
+    </Layout>
+  )
 }
 
 export default App;

@@ -1,0 +1,23 @@
+@use "../../variables.scss";
+
+.button_connect {
+  width: max-content;
+  margin: 0 auto;
+  padding: 8px 16px;
+  border-radius: 24px;
+  border: none;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  color: variables.$color_FFFFFF;
+  background-color: variables.$brand_yellow;
+  cursor: pointer;
+
+  &:hover {
+    background-color: variables.$color_5A2D1A;
+  }
+
+  @media only screen and (max-width: 436px) {
+  }
+}
