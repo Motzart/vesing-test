@@ -34,9 +34,9 @@ const ConnectWallet = () => {
         </button>
       )} */}
 
-      <a className="nav-link active" aria-current="page" href="#">
+      {/* <a className="nav-link active" aria-current="page" href="#">
         {account && account.accountId}
-      </a>
+      </a> */}
       <button
         type="submit"
         onClick={signedIn ? () => wallet.signOut() : () => wallet.signIn()}
