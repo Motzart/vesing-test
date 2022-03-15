@@ -9,8 +9,9 @@ import { formatNearAmount } from '~state/near';
 // import { claim } from '~services/near';
 import { appStore } from '~state/app';
 // components
-import { HelloBlock } from '~components/helloBlock'
+import { HelloBlock } from '~components/helloBlock';
 import { ClaimTokensBlock } from '~components/сlaimTokensBlock';
+import {TimerRoundStart} from '~components/TimerRoundStart';
 import ConnectWallet from '~components/connectWallet';
 import Faq from '~components/faq';
 import HowMuchPem from './howMuchPem';
@@ -52,6 +53,7 @@ export const Content = () => {
         <HelloBlock />
         <ConnectWallet />
         <ClaimTokensBlock />
+        <TimerRoundStart />
         <Faq />
         <HowMuchPem />
         <LeaveTelegram />
