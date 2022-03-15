@@ -1,10 +1,12 @@
 import React from "react";
+import {NoConnected} from '~components/сlaimTokensBlock/NoConnected'
 import logo from '../../../assets/styles/ClaimTokensBlock/logo.svg'
 import info2 from '../../../assets/styles/ClaimTokensBlock/Info2.svg'
 import styles from '../../../assets/styles/ClaimTokensBlock/Connected.scss'
 
 export const Connected = () => {
 return(
+    <>
     <div className={styles.tokensBlock}>
         <h2 className={styles.saleText}>Available now</h2>
         <div className={styles.amountPem}>
@@ -39,7 +41,9 @@ return(
                     <p className={styles.daysText}>85,485.0 <span className={styles.daysPem}>PEM</span></p>
                 </div>
             </div>
-        
-    </div>
+       
+    </div> 
+    <NoConnected />
+    </>
 )
 };

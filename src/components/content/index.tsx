@@ -12,11 +12,11 @@ import { appStore } from '~state/app';
 import { HelloBlock } from '~components/helloBlock';
 import { ClaimTokensBlock } from '~components/сlaimTokensBlock';
 import { TimerRoundStart } from '~components/TimerRoundStart';
+import { TokenSale1 } from '~components/TokenSale1';
 import ConnectWallet from '~components/connectWallet';
 import Faq from '../../components/faq';
 import HowMuchPem from './howMuchPem';
 import LeaveTelegram from './LeaveTelegram';
-import { TokenSale1 } from '~components/TokenSale1';
 // styles
 import styles from '~assets/styles/components/content/mainContent.module.scss'
 
