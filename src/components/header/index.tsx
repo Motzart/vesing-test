@@ -6,11 +6,12 @@ import { appStore } from "~state/app";
 import Logo from "./Logo";
 import HeaderMenu from "./HeaderMenu";
 import BurgerMenu from "./Burger";
-import logoImg from "../../assets/images/header/header_logo.svg";
-import imgArrows from "../../assets/images/header/arrows.svg";
 // data
 import menuList from "../../data-config/menu";
 // static
+import logoImg from "../../assets/images/header/header_logo.svg";
+import tokenImg from "../../assets/images/header/pembrock_icon.svg";
+import imgArrows from "../../assets/images/header/arrows.svg";
 import styles from "~assets/styles/components/header/header.module.scss";
 
 const Header = () => {
@@ -52,7 +53,14 @@ const Header = () => {
         </div>
         <HeaderMenu menuList={menuList} />
         <div className={styles.mobile_block}>
-          <a className="nav-link active" aria-current="page" href="#">
+          <div className={styles.token}>
+            <img src={tokenImg} alt='Pembrock token icon' />
+            &ensp;
+            &asymp;
+            &ensp;
+            <span className={styles.token_price}>$0.1</span>
+          </div>
+          {/* <a className="nav-link active" aria-current="page" href="#">
             {account && account.accountId}
           </a>
           {signedIn ? (
@@ -74,7 +82,7 @@ const Header = () => {
             >
               Connect Near Wallet
             </button>
-          )}
+          )} */}
           {enableMenu && (
             <BurgerMenu
               img={imgArrows}

@@ -1,5 +1,6 @@
 // library
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 // components
 import Header from '../header';
 import Footer from '../footer';
@@ -13,11 +14,13 @@ interface Ichildren {
 function Layout({ children }: Ichildren) {
 
   return (
-    <div className={styles.wrapper}>
-      <Header />
-      {children}
-      <Footer />
-    </div>
+    <Router>
+      <div className={styles.wrapper}>
+        <Header />
+        {children}
+        <Footer />
+      </div>
+    </Router>
   )
 }
 

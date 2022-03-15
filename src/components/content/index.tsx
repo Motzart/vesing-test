@@ -8,6 +8,10 @@ import { formattedTime } from '~utils/time';
 import { formatNearAmount } from '~state/near';
 import { claim } from '~services/near';
 import { appStore } from '~state/app';
+// components
+import { HelloBlock } from '~components/helloBlock'
+import { ClaimTokensBlock } from '~components/сlaimTokensBlock';
+import Faq from '~components/faq';
 // styles
 import styles from '~assets/styles/components/content/mainContent.module.scss'
 
@@ -47,6 +51,9 @@ export const Content = () => {
           <br />
           {signedIn && lookups && (<h4>Balance: {formatNearAmount(balance, 4)}</h4>)}
         </div>
+        <HelloBlock />
+        <ClaimTokensBlock />
+        <Faq />
       </div>
     </main>
   );

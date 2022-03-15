@@ -1,6 +1,6 @@
 // library
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 // static
 import styles from "~assets/styles/components/header/headerMenu.module.scss";
 
@@ -11,14 +11,13 @@ const HeaderMenu = ({ menuList }) => {
         {menuList.map((link, key) => {
           return (
             <li key={key}>
-              <NavLink
+              <Link
                 to={link.href}
-                className={(isActive) =>
-                  `${styles.header_link} ` + (!isActive && styles.active_link)
+                className={`${styles.header_link} ${styles.active_link}`
                 }
               >
                 {link.label}
-              </NavLink>
+              </Link>
             </li>
           );
         })}

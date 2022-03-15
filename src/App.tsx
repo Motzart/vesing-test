@@ -1,12 +1,11 @@
 // library
 import React, { useContext, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // utils
 import { appStore, onAppMount } from '~state/app';
 
-import {Faq} from '~components/Faq';
-
-import NoConnectWallet from '~pages/noConnectWallet';
+// components
+import Layout from '~components/layout';
+import { Content } from '~components/content';
 
 function App() {
   const { dispatch } = useContext(appStore);
@@ -18,13 +17,9 @@ function App() {
   useEffect(onMount, []);
 
   return (
-
-    <Router>
-      <Routes>
-        <Route path="/" element={<NoConnectWallet />} />
-        <Route path="/how-to-buy" element={<NoConnectWallet />} />
-      </Routes>
-    </Router>
+    <Layout>
+      <Content />
+    </Layout>
   )
 }
 
