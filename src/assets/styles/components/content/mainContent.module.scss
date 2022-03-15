@@ -1,0 +1,10 @@
+@use "../../variables.scss";
+
+.main {
+  .container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 36px;
+    margin: 0 auto;
+  }
+}

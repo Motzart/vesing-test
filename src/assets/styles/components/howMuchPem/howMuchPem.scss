@@ -1,0 +1,63 @@
+@import "../../variables.scss";
+
+.tytle {
+  font-size: 20px;
+  line-height: 32px;
+  text-align: center;
+  margin-top: 32px;
+
+  color: #eaecef;
+}
+
+.oldBlock {
+  display: flex;
+}
+
+@media (max-width: 440px) {
+  .oldBlock {
+    display: block;
+  }
+}
+
+.faqBlock {
+  margin-top: 32px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 24px;
+
+  width: auto;
+  height: auto;
+
+  background: $color_14161C;
+  box-shadow: inset 0px 2px 2px $color_1B1E25;
+  border-radius: 24px;
+}
+
+.faqBlock:first-child {
+  margin-right: 20px;
+}
+
+@media (max-width: 440px) {
+  .faqBlock:first-child {
+    margin-right: 0px;
+  }
+}
+
+.title {
+  font-size: 16px;
+  line-height: 24px;
+
+  color: #eaecef;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+
+  color: #848a8f;
+}
+
+.textWrite {
+  color: #fff;
+}
