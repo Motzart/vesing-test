@@ -1,10 +1,14 @@
 @use "../../variables.scss";
 
-.wrapper {
-  position: relative;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.background {
   background-color: variables.$black;
+  .content {
+    position: relative;
+    height: 100%;
+    max-width: 749px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }

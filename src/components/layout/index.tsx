@@ -15,9 +15,11 @@ function Layout({ children }: Ichildren) {
 
   return (
     <Router>
-      <div className={styles.wrapper}>
+      <div className={styles.background}>
         <Header />
-        {children}
+        <div className={styles.content}>
+          {children}
+        </div>
         <Footer />
       </div>
     </Router>

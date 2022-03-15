@@ -6,12 +6,15 @@ import { useTokenBalance } from '~hooks/useTokenBalance';
 // utils
 import { formattedTime } from '~utils/time';
 import { formatNearAmount } from '~state/near';
-import { claim } from '~services/near';
+// import { claim } from '~services/near';
 import { appStore } from '~state/app';
 // components
 import { HelloBlock } from '~components/helloBlock'
 import { ClaimTokensBlock } from '~components/сlaimTokensBlock';
+import ConnectWallet from '~components/connectWallet';
 import Faq from '~components/faq';
+import HowMuchPem from './howMuchPem';
+import LeaveTelegram from './LeaveTelegram';
 // styles
 import styles from '~assets/styles/components/content/mainContent.module.scss'
 
@@ -30,14 +33,10 @@ export const Content = () => {
   return (
     <main className={styles.main}>
       <div className={styles.container}>
-        <div>
-          <br />
-          <br />
+        {/* <div>
           {signedIn && lookups && showData(lookups)}
         </div>
         <div>
-          <br />
-          <br />
           {signedIn && lookups && (<button type='button' onClick={() => claim()}>Claim All</button>)}
           {signedIn && transactionHash && (
             <button type='button' onClick={() => {
@@ -47,13 +46,15 @@ export const Content = () => {
           )}
         </div>
         <div>
-          <br />
-          <br />
           {signedIn && lookups && (<h4>Balance: {formatNearAmount(balance, 4)}</h4>)}
-        </div>
+        </div> */}
+
         <HelloBlock />
+        <ConnectWallet />
         <ClaimTokensBlock />
         <Faq />
+        <HowMuchPem />
+        <LeaveTelegram />
       </div>
     </main>
   );

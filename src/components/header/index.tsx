@@ -1,7 +1,5 @@
 // library
-import React, { useContext, useState, useRef } from "react";
-// utils
-import { appStore } from "~state/app";
+import React, { useState, useRef } from "react";
 // components
 import Logo from "./Logo";
 import HeaderMenu from "./HeaderMenu";
@@ -15,12 +13,8 @@ import imgArrows from "../../assets/images/header/arrows.svg";
 import styles from "~assets/styles/components/header/header.module.scss";
 
 const Header = () => {
-  const { state } = useContext(appStore);
   const [enableMenu, setEnableBurgerMenu] = useState(false);
   const burgerButton = useRef(null);
-
-  const { wallet, account } = state;
-  const signedIn = wallet && wallet.signedIn;
 
   const addClasses = (element, nameClass) => {
     element.contains(nameClass)
@@ -60,29 +54,6 @@ const Header = () => {
             &ensp;
             <span className={styles.token_price}>$0.1</span>
           </div>
-          {/* <a className="nav-link active" aria-current="page" href="#">
-            {account && account.accountId}
-          </a>
-          {signedIn ? (
-            <div className="d-flex text-info align-items-center">
-              <p className="m-0 px-3">Balance: {wallet.balance}</p>
-              <button
-                className="btn btn-outline-success"
-                type="submit"
-                onClick={() => wallet.signOut()}
-              >
-                Sign Out
-              </button>
-            </div>
-          ) : (
-            <button
-              className="btn btn-outline-success"
-              type="submit"
-              onClick={() => wallet.signIn()}
-            >
-              Connect Near Wallet
-            </button>
-          )} */}
           {enableMenu && (
             <BurgerMenu
               img={imgArrows}
