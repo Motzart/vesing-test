@@ -17,7 +17,6 @@ import ConnectWallet from '~components/connectWallet';
 import Faq from '../../components/Faq';
 import HowMuchPem from './howMuchPem';
 import LeaveTelegram from './LeaveTelegram';
-import { TokenSale1 } from '~components/TokenSale1';
 // styles
 import styles from '~assets/styles/components/content/mainContent.module.scss'
 
