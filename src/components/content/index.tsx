@@ -9,13 +9,14 @@ import { formatNearAmount } from '~state/near';
 // import { claim } from '~services/near';
 import { appStore } from '~state/app';
 // components
-import { HelloBlock } from '~components/helloBlock';
+import { HelloBlock } from '~components/HelloBlock';
 import { ClaimTokensBlock } from '~components/сlaimTokensBlock';
 import {TimerRoundStart} from '~components/TimerRoundStart';
 import ConnectWallet from '~components/connectWallet';
-import Faq from '~components/faq';
+import Faq from '../../components/Faq';
 import HowMuchPem from './howMuchPem';
 import LeaveTelegram from './LeaveTelegram';
+import { TokenSale1 } from '~components/TokenSale1';
 // styles
 import styles from '~assets/styles/components/content/mainContent.module.scss'
 
@@ -54,6 +55,7 @@ export const Content = () => {
         <ConnectWallet />
         <ClaimTokensBlock />
         <TimerRoundStart />
+        <TokenSale1 />
         <Faq />
         <HowMuchPem />
         <LeaveTelegram />
