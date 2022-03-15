@@ -35,7 +35,6 @@ const Header = () => {
     addClasses(burgerButton.current.classList, `${styles.active}`);
 
     setEnableBurgerMenu(!enableMenu);
-
     noScroll();
   };
 
