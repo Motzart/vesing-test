@@ -6,6 +6,7 @@ import styles from '~assets/styles/components/footer/footer.module.scss'
 function Footer() {
   return (
     <footer className={styles.footer}>
+      <div className={styles.line}></div>
       <h3 className={styles.footer_title}>2022 Pembrock Fin Corporation</h3>
     </footer>
   )

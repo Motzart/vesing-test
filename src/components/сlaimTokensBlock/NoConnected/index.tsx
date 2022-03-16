@@ -1,4 +1,5 @@
 import React from "react";
+import ReactTooltip from 'react-tooltip';
 import infoLogo from '../../../assets/styles/ClaimTokensBlock/Info.svg'
 import percent from '../../../assets/styles/ClaimTokensBlock/Percent.svg'
 import lockKey from '../../../assets/styles/ClaimTokensBlock/LockKey.svg'
@@ -53,8 +54,9 @@ return(
                     <p className={styles.discountText}>Lock-up settings</p>
                 </div>
                 <div className={styles.percentBlock}>
-                <img className={styles.percentImg} src={info2} alt="info" />
-                    <p className={styles.daysText}>730 days</p>
+                <ReactTooltip />
+                <img className={styles.percentImg} data-tip="Linear unlock with new tokens available to claim every second" src={info2} alt="info" />
+                    <p className={styles.daysText} >730 days</p>
                 </div>
             </div>
         </div>
