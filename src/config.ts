@@ -20,8 +20,8 @@ export default function getConfig(env: string = defaultEnv) {
         walletUrl: 'https://wallet.testnet.near.org',
         helperUrl: 'https://helper.testnet.near.org',
         explorerUrl: 'https://explorer.testnet.near.org',
-        LOCKUP_CONTRACT_ID: 'lockup.valar999-5.testnet',
-        TOKEN_CONTRACT_ID: 'wrap.testnet',
+        LOCKUP_CONTRACT_ID: 'lookup.pembrock.testnet',
+        TOKEN_CONTRACT_ID: 'token.pembrock.testnet',
         headers: {}
       }
   }
