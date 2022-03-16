@@ -69,6 +69,7 @@ const Header = () => {
           </button>
         </div>
       </div>
+      <div className={styles.line}></div>
     </header>
   );
 };
