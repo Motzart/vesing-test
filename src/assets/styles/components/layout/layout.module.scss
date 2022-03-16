@@ -5,10 +5,15 @@
   .content {
     position: relative;
     height: 100%;
-    max-width: 50%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+
+  @media (min-width: 767px) {
+    .content {
+      max-width: 50%;
+    }
   }
 }
