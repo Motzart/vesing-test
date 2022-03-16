@@ -1,4 +1,3 @@
-// library
 import React from 'react'
 import { Link } from "react-router-dom";
 // components
@@ -6,7 +5,14 @@ import ConnectWallet from '~components/connectWallet';
 // static
 import styles from '../../../assets/styles/components/header/burgerMenu.module.scss'
 
-const BurgerMenu = ({ img, menuList, handleClick, wallet }) => {
+type Props = {
+  img: string,
+  menuList: [],
+  handleClick: Function,
+  wallet: Object
+}
+
+const BurgerMenu = ({ img, menuList, handleClick, wallet }: Props) => {
   const signedIn = wallet && wallet.signedIn;
 
   return (
@@ -35,12 +41,14 @@ const BurgerMenu = ({ img, menuList, handleClick, wallet }) => {
           )
         })}
       </ul>
-      {!signedIn && <ConnectWallet />}
+      <div>
+      {<ConnectWallet disabled={signedIn}/>}
       {signedIn &&
         <button type="button" className={styles.signOut} onClick={() => wallet.signOut()}>
           Sign Out
         </button>
       }
+      </div>
     </nav>
   )
 }
