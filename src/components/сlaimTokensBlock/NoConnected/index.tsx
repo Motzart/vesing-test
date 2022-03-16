@@ -53,8 +53,8 @@ return(
                     <p className={styles.discountText}>Lock-up settings</p>
                 </div>
                 <div className={styles.percentBlock}>
-                <img className={styles.percentImg} src={info2} alt="info" />
-                    <p className={styles.daysText}>730 days</p>
+                <img className={styles.percentImg} data-tip="Linear unlock with new tokens available to claim every second" src={info2} alt="info" />
+                    <p className={styles.daysText} >730 days</p>
                 </div>
             </div>
         </div>
