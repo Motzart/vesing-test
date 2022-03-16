@@ -47,6 +47,10 @@
 }
 
 @media (max-width: 767px) {
+  .header .header_body .token {
+    min-width: auto;
+  }
+
   .header_burger {
     display: block;
     position: relative;
@@ -54,7 +58,6 @@
     height: 20px;
     z-index: 3;
     margin-left: 12px;
-    cursor: pointer;
   }
 
   .header_burger span {
@@ -77,15 +80,12 @@
     left: 0;
     transition: all 0.3s ease 0s;
   }
-
   .header_burger::before {
     top: 0;
   }
-
   .header_burger::after {
     bottom: 0;
   }
-
   .header_burger.active::before {
     transform: rotate(45deg);
     top: 9px;
@@ -136,11 +136,11 @@
 }
 
 @media only screen and (max-width: 420px) {
-  .header_burger {
-    margin-left: 0px;
+  .header {
+    padding: 0 16px;
   }
 }
 
 .line {
-  border: 1px solid #2b3139;
+  border: 1px solid variables.$color_2b3139;
 }
