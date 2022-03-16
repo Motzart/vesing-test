@@ -100,9 +100,6 @@ nav,
 section {
   display: block;
 }
-body {
-  line-height: normal;
-}
 ol,
 ul {
   list-style: none;
@@ -125,4 +122,12 @@ table {
 a {
   text-decoration: none;
   background-color: transparent;
+}
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
 }

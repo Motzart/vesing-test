@@ -23,11 +23,10 @@ const Header = () => {
   };
 
   const noScroll = () => {
-    let overflow = document.body.style.overflow
     if (!enableMenu) {
-      overflow = "hidden";
+      document.body.style.overflow = "hidden"
     } else {
-      overflow = "visible";
+      document.body.style.overflow = "visible";
     }
   };
 
@@ -62,6 +61,7 @@ const Header = () => {
           )}
           <button
             onClick={handleClick}
+            type='button'
             className={styles.header_burger}
             ref={burgerButton}
           >
@@ -69,7 +69,7 @@ const Header = () => {
           </button>
         </div>
       </div>
-      <div className={styles.line}></div>
+      <div className={styles.line} />
     </header>
   );
 };
