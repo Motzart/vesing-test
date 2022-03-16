@@ -21,7 +21,7 @@
       justify-content: center;
     }
     .token {
-      min-width: 149px;
+      // min-width: 149px;
       display: flex;
       justify-content: flex-end;
       align-items: center;
@@ -36,6 +36,42 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      column-gap: 20px;
+      .account_hover_block {
+        // TODO: REFACTOR!
+        position: relative;
+        height: 100px;
+        top: 30px;
+        .hover_block {
+          position: relative;
+          top: 20px;
+          height: 100%;
+          width: 160px;
+          opacity: 0;
+          visibility: hidden;
+        }
+        .signOut {
+          width: 100%;
+          margin: 0 auto;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 24px;
+          color: variables.$white;
+          border: 1px solid variables.$color_2b3139;
+          &:hover {
+            color: variables.$brand_yellow;
+          }
+        }
+        &:hover {
+          .hover_block {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+      button {
+        margin-top: 0px;
+      }
     }
   }
 }

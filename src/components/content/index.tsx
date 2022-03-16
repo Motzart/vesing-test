@@ -52,7 +52,7 @@ export const Content = () => {
         </div> */}
 
         <HelloBlock />
-        <ConnectWallet />
+        {!signedIn && <ConnectWallet />}
         <ClaimTokensBlock />
         <TimerRoundStart />
         <TokenSale1 />

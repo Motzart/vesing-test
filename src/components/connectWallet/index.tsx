@@ -4,6 +4,7 @@ import React, { useContext } from "react";
 import { appStore } from "~state/app";
 // static
 import imgWallet from "../../assets/images/wallet.svg";
+import imgNear from "../../assets/images/near.svg";
 import styles from "../../assets/styles/components/connectWallet/connectWallet.module.scss";
 
 const ConnectWallet = () => {
@@ -40,13 +41,11 @@ const ConnectWallet = () => {
       </a> */}
       <button
         type="submit"
-        onClick={signedIn ? () => wallet.signOut() : () => wallet.signIn()}
+        onClick={() => wallet.signIn()}
         className={styles.button_connect}
       >
-        <span className={styles.wallet_icon}>
-          <img src={imgWallet} alt="Wallet icon" />
-        </span>
-        {signedIn ? 'Sign Out' : 'Connect wallet'}
+        <img src={signedIn ? imgNear : imgWallet} alt="Wallet icon" />
+        <span>{signedIn ? (account && account.accountId) : 'Connect wallet'}</span>
       </button>
     </>
 

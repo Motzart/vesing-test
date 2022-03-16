@@ -1,10 +1,14 @@
 // library
 import React from 'react'
 import { Link } from "react-router-dom";
-// styles
+// components
+import ConnectWallet from '~components/connectWallet';
+// static
 import styles from '../../../assets/styles/components/header/burgerMenu.module.scss'
 
-const BurgerMenu = ({ img, menuList, handleClick }) => {
+const BurgerMenu = ({ img, menuList, handleClick, wallet }) => {
+  const signedIn = wallet && wallet.signedIn;
+
   return (
     <nav className={styles.header_menu}>
       <ul className={styles.header_list}>
@@ -31,6 +35,12 @@ const BurgerMenu = ({ img, menuList, handleClick }) => {
           )
         })}
       </ul>
+      {!signedIn && <ConnectWallet />}
+      {signedIn &&
+        <button type="button" className={styles.signOut} onClick={() => wallet.signOut()}>
+          Sign Out
+        </button>
+      }
     </nav>
   )
 }
