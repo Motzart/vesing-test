@@ -21,7 +21,9 @@
       justify-content: center;
     }
     .token {
+      min-width: 149px;
       display: flex;
+      justify-content: flex-end;
       align-items: center;
       .token_price {
         font-weight: 400;

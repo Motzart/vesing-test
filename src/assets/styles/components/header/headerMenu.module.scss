@@ -1,4 +1,4 @@
-@import "../../variables.scss";
+@use "../../variables.scss";
 
 .header_list {
   display: flex;
@@ -8,28 +8,22 @@
 }
 
 .header_link {
-  list-style: none;
-  color: $color_848A8F;
-  text-decoration: none;
   width: 62px;
   height: 24px;
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 16px;
   line-height: 24px;
+  color: variables.$white;
 }
 
 .header_link {
   &:hover {
-    color: $color_FFFFFF;
+    color: variables.$brand_yellow;
   }
 }
 
-.icon {
-  margin-left: 5px;
-}
-
-.active_menu_link {
-  color: $color_FFFFFF;
+.active_link {
+  color: variables.$brand_yellow;
 }
 
 @media (max-width: 767px) {

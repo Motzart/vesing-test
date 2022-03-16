@@ -2,7 +2,8 @@
 import React, { useContext } from "react";
 // utils
 import { appStore } from "~state/app";
-// styles
+// static
+import imgWallet from "../../assets/images/wallet.svg";
 import styles from "../../assets/styles/components/connectWallet/connectWallet.module.scss";
 
 const ConnectWallet = () => {
@@ -42,6 +43,9 @@ const ConnectWallet = () => {
         onClick={signedIn ? () => wallet.signOut() : () => wallet.signIn()}
         className={styles.button_connect}
       >
+        <span className={styles.wallet_icon}>
+          <img src={imgWallet} alt="Wallet icon" />
+        </span>
         {signedIn ? 'Sign Out' : 'Connect wallet'}
       </button>
     </>

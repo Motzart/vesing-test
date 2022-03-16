@@ -18,7 +18,9 @@
   &:hover {
     background-color: variables.$color_5A2D1A;
   }
-
+  .wallet_icon {
+    margin-right: 10px;
+  }
   @media only screen and (max-width: 436px) {
   }
 }
