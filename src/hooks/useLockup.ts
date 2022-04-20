@@ -20,7 +20,7 @@ export const useLockup = () => {
         console.log('-------', data)
         return setLockupPage(data);
       })
-      .catch(() => setLockupPage(null));
+      .catch(e => console.log(e));
   }, []);
 
   return userLockupPage;

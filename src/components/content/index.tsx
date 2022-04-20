@@ -1,72 +1,51 @@
-import React, { useContext } from 'react';
-import { UserLockupsView, useUserLockups } from '~hooks/useUserLockups';
-import { formatNearAmount } from '~state/near';
-import { formattedTime } from '~utils/time';
-import { useTokenBalance } from '~hooks/useTokenBalance';
-import { claim } from '~services/near';
-import { appStore } from '~state/app';
+import React from 'react';
+import { useLockup } from '~hooks/useLockup';
+import { separation, toPrecision, toReadableNumber } from '~utils/numbers';
 
 export const Content = () => {
-  const { state } = useContext(appStore);
-
-  const { wallet } = state;
-  const signedIn = wallet && wallet.signedIn;
-
-  const lookups = useUserLockups();
-  const balance = useTokenBalance();
-
-  const url = new URL(window.location.href);
-  const transactionHash = url.searchParams.get('transactionHashes');
+  const lookups = useLockup();
+  console.log('lookups', lookups);
 
   return (
-    <div className="container pt-3">
+    <div className="container pt-1">
       <div className="row">
-        <div className="col-md-4">
+        <div className="col-md-12">
           <br/>
           <br />
-          {signedIn && lookups && showData(lookups)}
-        </div>
-        <div className="col-md-4">
-          <br/>
-          <br />
-          {signedIn && lookups && (<button className="btn btn-outline-success" onClick={() => claim()}>Claim All</button>)}
-          {signedIn && transactionHash && (
-            <button className="btn btn-outline-success" onClick={() => {
-              const url = `https://explorer.testnet.near.org/transactions/${transactionHash}`
-              window.open(url, '_blank');
-            }}>Go to explorer</button>
-          )}
-        </div>
-        <div className="col-md-4">
-          <br/>
-          <br/>
-          {signedIn && lookups && (<h4>Balance: {formatNearAmount(balance, 5)}</h4>)}
+          {lookups && showData(lookups)}
         </div>
       </div>
     </div>
   );
 }
 
-const showData = (data: UserLockupsView) => {
-  const schedule = data.schedule;
+const showData = (data: any) => {
   return (
     <div>
-      <h4>Data:</h4>
-      <p>account_id: {data.account_id}</p>
-      <p>claimed_balance: {formatNearAmount(data.claimed_balance, 5)}</p>
-      <p>termination_config: {data.termination_config || 'null'}</p>
-      <p>timestamp: {formattedTime(data.timestamp)}</p>
-      <p>total_balance: {formatNearAmount(data.total_balance, 5)}</p>
-      <p>unclaimed_balance: {formatNearAmount(data.unclaimed_balance, 5)}</p>
-      <h4>Schedule:</h4>
-      {schedule.map((item: {timestamp: number, balance: string}, index) => {
-        return (
-          <div key={index}>
-          <p>schedule timestamp-{index}: {formattedTime(item.timestamp)}</p>
-          <p>schedule balance-{index}: {formatNearAmount(item.balance, 4)}</p>
-          </div>
-        )
-      })}
+      <table className="table">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Account Id</th>
+          <th scope="col">Claimed Balance</th>
+          <th scope="col">Total Balance</th>
+          <th scope="col">Unclaimed Balance</th>
+        </tr>
+        </thead>
+        <tbody>
+        {data.map((item, index) => {
+          return (
+            <tr key={item[1].account_id}>
+              <th scope="row">{index + 1}</th>
+              <td>{item[1].account_id}</td>
+              <td>{separation(toPrecision(toReadableNumber(18, item[1].claimed_balance), 0))}</td>
+              <td>{separation(toPrecision(toReadableNumber(18, item[1].total_balance), 0))}</td>
+              <td>{separation(toPrecision(toReadableNumber(18, item[1].unclaimed_balance), 0))}</td>
+            </tr>
+          )
+        })}
+        </tbody>
+      </table>
     </div>
   )
 }

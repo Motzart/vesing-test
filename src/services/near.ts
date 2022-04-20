@@ -64,6 +64,13 @@ export const getUserLockups = (): Promise<[]> => {
   });
 }
 
+export const getLockupsPaged = (): Promise<[]> => {
+  return viewFunction({
+    methodName: 'get_lockups_paged',
+    args: { from_index: 0, limit: 100 },
+  });
+}
+
 export const claim = async () => {
   const transactions: Transaction[] = [];
 
